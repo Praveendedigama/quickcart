@@ -2,7 +2,7 @@ import HomeBookmarkScreen from "@/components/ui/screen/Home/HomeBookmarkScreen";
 import HomeCartScreen from "@/components/ui/screen/Home/HomeCartScreen";
 import HomeMenuScreen from "@/components/ui/screen/Home/HomeMenuScreen";
 import HomePageScreen from "@/components/ui/screen/Home/HomePageScreen";
-import HomeProduct from "@/components/ui/screen/Home/HomeProductScreen";
+import HomeProductScreen from "@/components/ui/screen/Home/HomeProductScreen";
 import { COLORS } from "@/constants/Colorpallet";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -39,7 +39,7 @@ export default function HomeBottomTabNavigation() {
         <Tab.Screen name={'Cart'} component={HomeCartScreen}/>
         <Tab.Screen name={'Home'} component={HomePageScreen}/>
         <Tab.Screen name={'Bookmark'} component={HomeBookmarkScreen}/>
-        <Tab.Screen name={'Products'} component={HomeProduct}/>
+        <Tab.Screen name={'Products'} component={HomeProductScreen}/>
      </Tab.Navigator>  
     )
 }

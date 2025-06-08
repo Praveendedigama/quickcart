@@ -4,7 +4,7 @@ export default function HomePageScreen() {
     return (
         <View style={styles.container }> 
             <Text>
-                This is a HomePageScreen
+                This is a HomePageScreen 
             </Text>
         
         </View>
