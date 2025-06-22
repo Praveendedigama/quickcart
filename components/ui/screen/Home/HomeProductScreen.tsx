@@ -1,11 +1,33 @@
-import { StyleSheet, Text, View } from "react-native";
+import { useState } from "react";
+import { StyleSheet, View } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
+import { Searchbar } from "react-native-paper";
+import DisplayTypeWidget from "../Share/DisplayTypeWidget";
+import ProductGridViewWidget from "./Widget/ProductGridViewWidget";
 
 export default function HomeProductScreen() {
+    const [searchQuery, setSearchQuery] = useState('');
     return (
         <View style={styles.container }> 
-            <Text>
-                This is a HomeProductScreen
-            </Text>
+            <Searchbar
+                  placeholder="Search"
+                  onChangeText={setSearchQuery}
+                  value={searchQuery}
+             />
+                <DisplayTypeWidget/>
+
+               <ScrollView 
+                showsVerticalScrollIndicator={false}
+               >
+                  <ProductGridViewWidget/>
+                  <ProductGridViewWidget/>
+                  <ProductGridViewWidget/>
+                  <ProductGridViewWidget/>
+                  <ProductGridViewWidget/>
+                </ScrollView> 
+                
+            
+            
         
         </View>
     );
@@ -13,9 +35,10 @@ export default function HomeProductScreen() {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        flex: 1,    
+        padding: 16,
+        backgroundColor: '#fff',
+    
         
     }
 

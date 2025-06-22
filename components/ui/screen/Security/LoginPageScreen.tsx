@@ -82,9 +82,6 @@ export default function LoginPageScreen() {
                         <Icon size={20} source={'github'}/>
                         </TouchableOpacity>
 
-                    
-
-
                 </View>
 
 

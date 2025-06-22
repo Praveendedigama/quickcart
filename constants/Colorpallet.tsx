@@ -1,7 +1,8 @@
 export const COLORS = {
     darkGray:'#bdc3c7',
     orange:'#f0753c',
-    Light:'#FFF'
+    Light:'#FFF',
+    blue:'578FCA'
 
 
 
