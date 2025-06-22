@@ -4,7 +4,7 @@ import React from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { Icon } from "react-native-paper";
 
-export default function DisplayTypeWidget() {
+export default function DisplayTypeWidget(callback:any) { 
     const [gridState, setgridState] = React.useState(true);
 
 
@@ -12,13 +12,21 @@ export default function DisplayTypeWidget() {
         <View style={styles.container }> 
 
             <TouchableOpacity 
-                onPress={() => setgridState(true)}
+                onPress={() => {
+                    setgridState(true)
+                    callback(true)
+
+
+                }}
                 style={{...styles.button, backgroundColor:gridState ? COLORS.blue : COLORS.darkGray}} >
                 <Icon size={20} source={'grid'} color={gridState ? COLORS.darkGray : COLORS.blue}  />
             </TouchableOpacity>
 
             <TouchableOpacity 
-                onPress={() => setgridState(false)}
+                onPress={() => {
+                    setgridState(false )
+                    callback(false)
+                }}
                 style={{...styles.button, backgroundColor:gridState ? COLORS.darkGray : COLORS.blue}}>
                 <Icon size={20} source={'menu'} color={gridState ? COLORS.blue : COLORS.darkGray}  />
             </TouchableOpacity>

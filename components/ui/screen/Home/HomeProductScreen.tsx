@@ -4,27 +4,45 @@ import { ScrollView } from "react-native-gesture-handler";
 import { Searchbar } from "react-native-paper";
 import DisplayTypeWidget from "../Share/DisplayTypeWidget";
 import ProductGridViewWidget from "./Widget/ProductGridViewWidget";
+import ProductListViewWidget from "./Widget/ProductListViewWidget";
 
 export default function HomeProductScreen() {
     const [searchQuery, setSearchQuery] = useState('');
+    const [isGridEnabled, setisGridEnabled] = useState(true);
+    
     return (
         <View style={styles.container }> 
-            <Searchbar
+            <Searchbar 
                   placeholder="Search"
                   onChangeText={setSearchQuery}
                   value={searchQuery}
              />
-                <DisplayTypeWidget/>
+                <DisplayTypeWidget callback={(state:boolean)=>setisGridEnabled(state)}/>
 
-               <ScrollView 
+                {isGridEnabled ? (
+                    <ScrollView 
+                    showsVerticalScrollIndicator={false}
+                   >
+                      <ProductGridViewWidget/>
+                      <ProductGridViewWidget/>
+                      <ProductGridViewWidget/>
+                      <ProductGridViewWidget/>
+                      <ProductGridViewWidget/>
+                    </ScrollView> 
+
+                ) : <ScrollView 
                 showsVerticalScrollIndicator={false}
                >
-                  <ProductGridViewWidget/>
-                  <ProductGridViewWidget/>
-                  <ProductGridViewWidget/>
-                  <ProductGridViewWidget/>
-                  <ProductGridViewWidget/>
-                </ScrollView> 
+                  <ProductListViewWidget/>
+                  <ProductListViewWidget/>
+                  <ProductListViewWidget/>
+                  <ProductListViewWidget/>
+                  <ProductListViewWidget/>
+                  <ProductListViewWidget/>
+                  
+                </ScrollView> }
+
+               
                 
             
             

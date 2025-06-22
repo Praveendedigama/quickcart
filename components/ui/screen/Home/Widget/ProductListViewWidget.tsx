@@ -2,7 +2,7 @@ import { COLORS } from "@/constants/Colorpallet";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Icon } from "react-native-paper";
 
-export default function ProductGridViewWidget() {
+export default function ProductListViewWidget() {
     return (
         <TouchableOpacity style={styles.container }> 
             <View style={styles.imageView}>
@@ -23,7 +23,7 @@ export default function ProductGridViewWidget() {
                     resizeMode={"contain"}
                 />
             </View>
-            <View>
+            <View style={{flex: 1, paddingLeft: 8}}>
                 <Text style={styles.name}> Lorem ipsum dolor  adipisicing elit. Ullam veniam placeat maiores, odit doloribus voluptatum sunt numquam vel possimus facilis!</Text>
                 <Text style={styles.price}>LKR 150,000</Text>
                 <Text style={styles.qty}>Qty:4</Text>
@@ -62,9 +62,11 @@ const styles = StyleSheet.create({
     },
     image: {
         width: '100%',
-        aspectRatio:16/12,
+        height:'100%',
     },
     imageView:{
+        width: 150,
+        height: 80,
         padding: 8,
         
     },
@@ -74,6 +76,7 @@ const styles = StyleSheet.create({
         padding: 8,
         borderRadius: 8,
         marginBottom: 5,
+        flexDirection: 'row',
         
         
     }
