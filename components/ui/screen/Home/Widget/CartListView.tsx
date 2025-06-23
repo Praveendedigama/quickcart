@@ -1,8 +1,17 @@
 import { COLORS } from "@/constants/Colorpallet";
+import { useState } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Icon } from "react-native-paper";
 
+
 export default function CartListView() {
+    const [qty, setQty] = useState(1);
+        const changeQty= (value: number) => {
+            if (value<=0) {
+                return;
+            }
+            setQty(value);
+        }
     return (
         <TouchableOpacity style={styles.container }> 
             <View style={styles.imageView}>
@@ -26,7 +35,35 @@ export default function CartListView() {
             <View style={{flex: 1, paddingLeft: 8}}>
                 <Text style={styles.name}> Lorem ipsum dolor  adipisicing elit. Ullam veniam placeat maiores, odit doloribus voluptatum sunt numquam vel possimus facilis!</Text>
                 <Text style={styles.price}>LKR 150,000</Text>
-                <Text style={styles.qty}>Qty:4</Text>
+                 <View style={styles.content}>
+                                   
+                                    <TouchableOpacity 
+                                    onPress={() => changeQty(qty - 1)}
+                                    style={styles.button}>
+                                        <Icon
+                                            size={20}
+                                            source={'minus'}
+                                            color={COLORS.blue}
+                                        />
+                
+                                    </TouchableOpacity>
+                
+                                    <Text style={styles.qty}>{qty}</Text>
+                
+                                    <TouchableOpacity 
+                
+                                        onPress={() => changeQty(qty + 1)}
+                                        style={styles.button}>
+                                            <Icon
+                                                size={20}
+                                                source={'plus'}
+                                                color={COLORS.blue}
+                                            />
+                
+                                        </TouchableOpacity>    
+                                    
+                                </View>
+                
 
 
             </View>
@@ -36,6 +73,15 @@ export default function CartListView() {
 }
 
 const styles = StyleSheet.create({
+    content:{
+        flexDirection: 'row',
+        
+        width: '100%',
+        justifyContent: 'flex-end',
+        gap: 8,
+        alignItems: 'center',
+        marginTop: 8,
+    },
     bookmark:{
         position: 'absolute',
         top: 8,
@@ -79,7 +125,13 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         
         
-    }
-
-
+    },
+    button: {
+        width: 30,
+        height: 30,
+        borderRadius: 15,
+        backgroundColor: COLORS.Light,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
 })
