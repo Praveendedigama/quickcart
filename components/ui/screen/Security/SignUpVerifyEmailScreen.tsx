@@ -11,13 +11,12 @@ import {
     View,
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import { Icon } from "react-native-paper";
 
 const logo = require('../../../../assets/images/logo/logo-wattpad.png'); // Path unchanged
  
-export default function LoginPageScreen({ navigation }: { navigation: any }) {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+export default function SignUpVerifyScreen({ navigation }: { navigation: any }) {
+    const [otp, setOtp] = useState('');
+
 
     return (
         <ScrollView contentContainerStyle={{ flexGrow: 1 }} style={styles.container}>
@@ -30,70 +29,34 @@ export default function LoginPageScreen({ navigation }: { navigation: any }) {
                 </View>
 
                 <View style={styles.inputOuter}>
-                    <Text style={styles.label}>Email Address</Text>
+                    <Text style={styles.label}>Enter OTP</Text>
                     <TextInput
-                        value={email}
-                        onChangeText={setEmail}
+                        value={otp}
+                        onChangeText={setOtp}
                         style={styles.input}
-                        placeholder="Enter your email"
+                        placeholder="Enter your OTP"
                         placeholderTextColor="#9AA6B2" 
-                        keyboardType="email-address"
+                        keyboardType="decimal-pad"
                         autoCapitalize="none"
                     />
                 </View>
 
-                <View style={styles.inputOuter}>
-                    <Text style={styles.label}>Password</Text>
-                    <TextInput
-                        value={password}
-                        onChangeText={setPassword}
-                        style={styles.input}
-                        placeholder="Enter your password"
-                        placeholderTextColor="#9AA6B2" 
-
-                        secureTextEntry
-                    />
-                </View>
-
-                <TouchableOpacity style={styles.loginButton}>
-                    <Text style={styles.loginButtonText}>Login</Text>
-                </TouchableOpacity>
-
                 <TouchableOpacity
-                    onPress={() => navigation.navigate('ChangePasswordScreen')}
+                    onPress={() => navigation.navigate('SignUp')}
                     
+                
                 >
-                    <Text style={styles.forgotText}>Forgot your password?</Text>
+                    <Text style={styles.forgotText}>Change Email</Text>
                 </TouchableOpacity>
 
-                <Text style={styles.seperateText}>Or</Text>
-
-                <View style={styles.socialLoginWrapper}>
-                        <TouchableOpacity style={styles.iconOuter}> 
-                        <Icon size={20} source={'google'}/>
-                        </TouchableOpacity>
-
-                        <TouchableOpacity style={styles.iconOuter}> 
-                        <Icon size={20} source={'facebook'}/>
-                        </TouchableOpacity>
-
-                        <TouchableOpacity style={styles.iconOuter}> 
-                        <Icon size={20} source={'twitter'}/>
-                        </TouchableOpacity>
-
-                        <TouchableOpacity style={styles.iconOuter}> 
-                        <Icon size={20} source={'github'}/>
-                        </TouchableOpacity>
-
-                </View>
-
+                
 
                 <TouchableOpacity
-                onPress={() => navigation.navigate('SignUp')}
-                style={styles.iconButton}>
+                onPress={() => navigation.navigate('Process')}
+                style={styles.loginButton}>
+                    <Text style={styles.loginButtonText}>Verify</Text>
+                </TouchableOpacity>
 
-                           <Text style={styles.loginText}>Register with the email</Text>
-                        </TouchableOpacity>
 
             </KeyboardAvoidingView>
         </ScrollView>
@@ -180,7 +143,7 @@ const styles = StyleSheet.create({
     },
     forgotText: {
         color: '#007AFF', // iOS blue-style underline
-        textAlign: 'center',
+        alignSelf: 'flex-end',
         fontSize: 14,
         textDecorationLine: 'underline',
         marginTop: 8,

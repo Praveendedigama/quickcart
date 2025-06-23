@@ -1,4 +1,9 @@
+import ChangePasswordScreen from '@/components/ui/screen/Security/ChangePasswordScreen';
 import LoginPageScreen from '@/components/ui/screen/Security/LoginPageScreen';
+import ResetPasswordScreen from '@/components/ui/screen/Security/ResetPasswordScreen';
+import ResetPasswordVerifyScreen from '@/components/ui/screen/Security/ResetPasswordVerifyScreen';
+import SignupScreen from '@/components/ui/screen/Security/SignupScreen';
+import SignUpVerifyScreen from '@/components/ui/screen/Security/SignUpVerifyEmailScreen';
 import { createStackNavigator } from '@react-navigation/stack';
 import CustomerCareScreen from '../../../../components/ui/screen/other/CustomerCareScreen';
 import DailyDealsScreen from '../../../../components/ui/screen/other/DailyDealsScreen';
@@ -54,7 +59,25 @@ export default function StackNavigator() {
                       options={{title:'Login Here'}}
                       component={LoginPageScreen}/>
 
+         <Stack.Screen name='SignUp'
+                      options={{title:'Register Here'}}
+                      component={SignupScreen}/>
+
+         <Stack.Screen name='verifyEmail'
+                      options={{title:'Verify Your Email'}}
+                      component={SignUpVerifyScreen}/>
+
+         <Stack.Screen name='ChangePasswordScreen'
+                      options={{title:'Change Password'}}
+                      component={ChangePasswordScreen}/>
       
+         <Stack.Screen name='ResetPasswordVerifyScreen'
+                      options={{title:'Verify Email'}}
+                      component={ResetPasswordVerifyScreen}/>
+      
+         <Stack.Screen name='ResetPasswordScreen'
+                      options={{title:'Reset Password'}}
+                      component={ResetPasswordScreen}/>
       
     </Stack.Navigator>   
    )
