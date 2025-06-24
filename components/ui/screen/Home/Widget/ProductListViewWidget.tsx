@@ -2,15 +2,17 @@ import { COLORS } from "@/constants/Colorpallet";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Icon } from "react-native-paper";
 
-export default function ProductListViewWidget() {
+export default function ProductListViewWidget({ navigation }: { navigation: any }) {
     return (
-        <TouchableOpacity style={styles.container }> 
+        <TouchableOpacity
+        onPress={() => navigation.navigate('ProductDetails')}
+        style={styles.container }> 
             <View style={styles.imageView}>
                 <TouchableOpacity style={styles.bookmark}>
-                    <Icon
+                    <Icon 
                         size={20}
                         source={'heart'}
-                        color={COLORS.blue}
+                        color={'white'}
                     />
                     
                 </TouchableOpacity>
@@ -38,6 +40,7 @@ export default function ProductListViewWidget() {
 const styles = StyleSheet.create({
     bookmark:{
         position: 'absolute',
+        
         top: 8,
         right: 8,
         width: 30,
@@ -72,6 +75,7 @@ const styles = StyleSheet.create({
     },
     container: {
         width: '100%',
+        marginTop: 10,
         backgroundColor:COLORS.darkGray,
         padding: 8,
         borderRadius: 8,

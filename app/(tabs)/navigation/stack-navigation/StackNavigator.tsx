@@ -1,3 +1,4 @@
+import ProductDetailsScreen from '@/components/ui/screen/ProductDetailsScreen';
 import ChangePasswordScreen from '@/components/ui/screen/Security/ChangePasswordScreen';
 import LoginPageScreen from '@/components/ui/screen/Security/LoginPageScreen';
 import ResetPasswordScreen from '@/components/ui/screen/Security/ResetPasswordScreen';
@@ -78,6 +79,10 @@ export default function StackNavigator() {
          <Stack.Screen name='ResetPasswordScreen'
                       options={{title:'Reset Password'}}
                       component={ResetPasswordScreen}/>
+      
+         <Stack.Screen name='ProductDetails'
+                      options={{title:'Product Details'}}
+                      component={ProductDetailsScreen}/>
       
     </Stack.Navigator>   
    )

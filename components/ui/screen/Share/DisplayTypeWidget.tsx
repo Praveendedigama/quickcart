@@ -13,12 +13,15 @@ export default function DisplayTypeWidget({ callback }: { callback: (state: bool
                     setgridState(true);
                     callback(true); // Call the callback function with `true`
                 }}
-                style={{
-                    ...styles.button,
-                    backgroundColor: gridState ? COLORS.blue : COLORS.darkGray,
-                }}
+                style={[styles.button, { backgroundColor: gridState ? COLORS.blue : COLORS.darkGray }]}
+
             >
-                <Icon size={20} source={'grid'} color={gridState ? COLORS.darkGray : COLORS.blue} />
+                <Icon
+                    size={22}
+                    source={'grid'}
+                    color={gridState ? '#fff' : '#36454F'} // white when active
+                    />
+
             </TouchableOpacity>
 
             <TouchableOpacity
@@ -26,12 +29,14 @@ export default function DisplayTypeWidget({ callback }: { callback: (state: bool
                     setgridState(false);
                     callback(false); // Call the callback function with `false`
                 }}
-                style={{
-                    ...styles.button,
-                    backgroundColor: gridState ? COLORS.darkGray : COLORS.blue,
-                }}
+                style={[styles.button, { backgroundColor: gridState ? COLORS.darkGray : COLORS.blue }]}
+
             >
-                <Icon size={20} source={'menu'} color={gridState ? COLORS.blue : COLORS.darkGray} />
+                    <Icon
+                    size={22}
+                    source={'menu'}
+                    color={!gridState ? '#fff' : '#36454F'} // white when active
+                    />
             </TouchableOpacity>
         </View>
     );
@@ -39,16 +44,25 @@ export default function DisplayTypeWidget({ callback }: { callback: (state: bool
 
 const styles = StyleSheet.create({
     button: {
-        width: 40,
-        height: 40,
-        borderWidth: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+      width: 44,
+      height: 44,
+      borderRadius: 22,
+      backgroundColor: COLORS.darkGray,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginLeft: 12,
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.15,
+      shadowRadius: 4,
+      elevation: 4,
     },
     container: {
-        marginTop: 16,
-        padding: 16,
-        flexDirection: 'row',
-        justifyContent: 'flex-end',
+      marginTop: 16,
+      marginBottom: 16,
+      paddingHorizontal: 16,
+      flexDirection: 'row',
+      justifyContent: 'flex-end',
     },
-});
+  });
+  
